@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact List</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/css/1.css">
+    </head>
+    <body> 
+        <h1><i class="fas fa-address-book"></i> My Contacts List</h1>      
+        <ul class="address-list">
+              <% for(let i=0;i<contact.length;i++) { %>
+              <li><span><%= contact[i].name %></span>
+                   <span id="span2"><%=contact[i].phone %></span>
+                   <span> <a href="/delete/?id=<%=contact[i]._id %>"><i class="fas fa-trash"></i></a></span>
+              </li>
+            <% } %>
+        </ul>
+        <form action="/save" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="number" name="phone" placeholder="Phone" required>
+            <br>
+            <button type="submit" id="contact">Add to Contacts</button>
+        </form> 
+        <script src="/js/1.js"></script>
+    </body>
+</html>
